@@ -831,11 +831,6 @@
     form.addEventListener('submit', async function(e) {
       e.preventDefault();
       const action = form.getAttribute('action');
-      if (action.includes('mjgdpjkd')) {
-        status.style.color = '#fbbf24';
-        status.textContent = '⚠️ Formspree endpoint missing. Please check the form action.';
-        return;
-      }
       // populate hidden _replyto from email field
       const replyto = form.querySelector('input[name="_replyto"]');
       if (replyto) replyto.value = document.getElementById('email').value;
