@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rajendra Jat — Senior Support Engineer | DevOps & SRE</title>
+  <meta name="description" content="Portfolio of Rajendra Jat, Senior Support Engineer transitioning to DevOps/SRE.">
+  <style>
+    :root {
+      --bg: #0b0f19;
+      --bg-elevated: #111827;
+      --card: #1f2937;
+      --text: #e5e7eb;
+      --text-muted: #9ca3af;
+      --accent: #06b6d4;
+      --accent-hover: #22d3ee;
+      --border: #374151;
+      --radius: 12px;
+      --shadow: 0 10px 30px rgba(0,0,0,0.35);
+      --transition: 0.25s ease;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a { color: var(--accent); text-decoration: none; transition: color var(--transition); }
+    a:hover { color: var(--accent-hover); }
+
+    /* Navbar */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(11,15,25,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+    .logo {
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: var(--text);
+      letter-spacing: -0.5px;
+    }
+    .logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 1.5rem; list-style: none; }
+    .nav-links a {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+    .nav-links a:hover { color: var(--accent); }
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--text);
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    /* Sections */
+    section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 5rem 1.5rem;
+    }
+    .section-title {
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin-bottom: 2.5rem;
+      position: relative;
+      display: inline-block;
+    }
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 48px;
+      height: 3px;
+      background: var(--accent);
+      margin-top: 0.5rem;
+      border-radius: 2px;
+    }
+
+    /* Hero */
+    #home {
+      text-align: center;
+      padding-top: 7rem;
+      padding-bottom: 6rem;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(6,182,212,0.12);
+      color: var(--accent);
+      padding: 0.35rem 1rem;
+      border-radius: 999px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      border: 1px solid rgba(6,182,212,0.25);
+    }
+    .hero-name {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 800;
+      letter-spacing: -1.5px;
+      line-height: 1.1;
+      margin-bottom: 0.75rem;
+    }
+    .hero-role {
+      font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+    }
+    .hero-role strong { color: var(--accent); font-weight: 600; }
+    .hero-bio {
+      max-width: 640px;
+      margin: 0 auto 2rem;
+      color: var(--text-muted);
+      font-size: 1.05rem;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.65rem 1.5rem;
+      border-radius: var(--radius);
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: all var(--transition);
+      cursor: pointer;
+      border: none;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: #0b0f19;
+    }
+    .btn-primary:hover {
+      background: var(--accent-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(6,182,212,0.25);
+    }
+    .btn-outline {
+      background: transparent;
+      color: var(--text);
+      border: 1.5px solid var(--border);
+    }
+    .btn-outline:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-2px);
+    }
+    .social-row {
+      margin-top: 2.5rem;
+      display: flex;
+      justify-content: center;
+      gap: 1.25rem;
+    }
+    .social-row a {
+      color: var(--text-muted);
+      font-size: 1.3rem;
+      transition: color var(--transition), transform var(--transition);
+    }
+    .social-row a:hover { color: var(--accent); transform: translateY(-2px); }
+
+    /* About */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+    .about-text p {
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 1rem;
+    }
+    .skill-tag {
+      background: var(--card);
+      color: var(--text);
+      padding: 0.35rem 0.85rem;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 500;
+      border: 1px solid var(--border);
+      transition: all var(--transition);
+    }
+    .skill-tag:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-1px);
+    }
+    .experience-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+    }
+    .experience-card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.25rem;
+    }
+    .experience-card .meta {
+      font-size: 0.875rem;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      font-weight: 500;
+    }
+    .experience-card ul {
+      list-style: none;
+      padding: 0;
+    }
+    .experience-card li {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      margin-bottom: 0.5rem;
+      padding-left: 1.25rem;
+      position: relative;
+    }
+    .experience-card li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+    }
+
+    /* Cards grid (Tools, Projects, Blog) */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.75rem;
+      transition: transform var(--transition), box-shadow var(--transition);
+      display: flex;
+      flex-direction: column;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+      border-color: rgba(6,182,212,0.3);
+    }
+    .card h3 {
+      font-size: 1.15rem;
+      margin-bottom: 0.5rem;
+    }
+    .card p {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      margin-bottom: 1.25rem;
+      flex-grow: 1;
+    }
+    .card-actions { margin-top: auto; }
+
+    /* Tech tags */
+    .tech-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 1.25rem;
+    }
+    .tech-tag {
+      background: rgba(6,182,212,0.1);
+      color: var(--accent);
+      padding: 0.2rem 0.6rem;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+    }
+
+    /* Blog */
+    .blog-date {
+      font-size: 0.82rem;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+      display: block;
+    }
+
+    /* Contact */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+    .contact-info p {
+      color: var(--text-muted);
+      margin-bottom: 1.25rem;
+    }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+      color: var(--text-muted);
+    }
+    .contact-item strong { color: var(--text); min-width: 80px; }
+    .contact-form {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.75rem;
+    }
+    .form-group { margin-bottom: 1.25rem; }
+    .form-group label {
+      display: block;
+      font-size: 0.875rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+      color: var(--text);
+    }
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.65rem 0.9rem;
+      background: var(--bg);
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      color: var(--text);
+      font-size: 0.95rem;
+      font-family: inherit;
+      transition: border-color var(--transition);
+    }
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+    .form-group textarea { min-height: 120px; resize: vertical; }
+    .form-status {
+      margin-top: 0.75rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+      min-height: 1.4em;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 2.5rem 1.5rem;
+      border-top: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 0.875rem;
+    }
+    footer a { color: var(--text-muted); }
+    footer a:hover { color: var(--accent); }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 64px;
+        left: 0;
+        right: 0;
+        background: var(--bg-elevated);
+        flex-direction: column;
+        padding: 1rem 1.5rem;
+        gap: 1rem;
+        border-bottom: 1px solid var(--border);
+      }
+      .nav-links.open { display: flex; }
+      .menu-toggle { display: block; }
+      .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+      #home { padding-top: 5rem; padding-bottom: 4rem; }
+    }
+
+    /* Animations */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.7s ease forwards;
+    }
+    @keyframes fadeInUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===================== NAVBAR ===================== -->
+  <nav>
+    <div class="nav-container">
+      <a href="#home" class="logo">Rajendra<span>.</span></a>
+      <button class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle menu">☰</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home" onclick="closeMenu()">Home</a></li>
+        <li><a href="#about" onclick="closeMenu()">About</a></li>
+        <li><a href="#tools" onclick="closeMenu()">Tools</a></li>
+        <li><a href="#projects" onclick="closeMenu()">Projects</a></li>
+        <li><a href="#blog" onclick="closeMenu()">Blog</a></li>
+        <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ===================== HERO / HOME ===================== -->
+  <section id="home" class="fade-in">
+    <div class="hero-badge">Open to DevOps / SRE / Platform Engineering Roles</div>
+    <h1 class="hero-name">Rajendra Jat</h1>
+    <p class="hero-role">Senior Support Engineer → <strong>DevOps &amp; SRE</strong></p>
+    <p class="hero-bio">
+      I'm a Senior Support Engineer at <strong>LTIMindtree</strong> working with the <strong>Microsoft Edge enterprise team</strong>.
+      I debug browsers, networks, and endpoints at scale — and I'm actively transitioning into
+      <strong>DevOps, Site Reliability Engineering, and Platform Engineering</strong> roles.
+    </p>
+    <div class="hero-actions">
+      <a href="#tools" class="btn btn-primary">🛠️ Explore Tools</a>
+      <a href="#contact" class="btn btn-outline">📬 Get in Touch</a>
+    </div>
+    <div class="social-row">
+      <a href="https://github.com/rajendrajat" target="_blank" rel="noopener" aria-label="GitHub">
+        <!-- GitHub SVG -->
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+      </a>
+      <a href="https://linkedin.com/in/rajendrajat" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <!-- LinkedIn SVG -->
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      </a>
+      <a href="mailto:rajendrajat@outlook.com" aria-label="Email">
+        <!-- Email SVG -->
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- ===================== ABOUT ===================== -->
+  <section id="about">
+    <h2 class="section-title">About Me</h2>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>
+          I have spent years in the trenches of enterprise support — debugging complex browser issues,
+          analyzing network traces, and helping Fortune 500 companies keep their endpoints running smoothly.
+        </p>
+        <p>
+          Along the way, I built a deep appreciation for automation, reliability engineering, and infrastructure-as-code.
+          Today, I'm transitioning into <strong>DevOps / SRE</strong> roles where I can apply my troubleshooting mindset
+          at the platform level.
+        </p>
+        <p style="margin-bottom:0.5rem;font-weight:600;color:var(--text);">Core Skills</p>
+        <div class="skills-list">
+          <span class="skill-tag">Linux</span>
+          <span class="skill-tag">Docker</span>
+          <span class="skill-tag">Kubernetes</span>
+          <span class="skill-tag">CI/CD</span>
+          <span class="skill-tag">Bash</span>
+          <span class="skill-tag">Azure</span>
+          <span class="skill-tag">Networking</span>
+          <span class="skill-tag">Browser Internals</span>
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">Git</span>
+          <span class="skill-tag">Terraform (learning)</span>
+          <span class="skill-tag">Prometheus / Grafana (learning)</span>
+        </div>
+      </div>
+      <div class="experience-card">
+        <h3>Senior Support Engineer</h3>
+        <div class="meta">LTIMindtree — Microsoft Edge Enterprise Team</div>
+        <ul>
+          <li>Debug enterprise browser issues across Windows, macOS, and mobile platforms</li>
+          <li>Analyze NetLog, ETL, HAR, and SAZ traces to root-cause network &amp; rendering failures</li>
+          <li>Build internal tools and automation scripts to accelerate incident resolution</li>
+          <li>Collaborate with Microsoft engineering on critical escalations and bug triage</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== TOOLS ===================== -->
+  <section id="tools">
+    <h2 class="section-title">Tools</h2>
+    <p style="color:var(--text-muted);margin-bottom:2rem;">
+      Browser &amp; network diagnostic utilities I built to make my (and your) debugging life easier.
+      Click <strong>Launch</strong> to open a tool — most are hosted via GitHub Pages.
+    </p>
+    <div class="cards-grid">
+
+      <!-- ADD NEW TOOL HERE (copy/paste a card block below and edit details) -->
+
+      <div class="card">
+        <h3>🌐 NetLog Analyzer</h3>
+        <p>Parse and triage Edge/Chrome <code>net-export.json</code> logs — surfaces blocked endpoints, proxy issues, cert errors, DNS failures, and HTTP/2/QUIC session details.</p>
+        <div class="card-actions">
+          <a href="https://rajendrajat.github.io/Browser-tools/netlog-analyzer.html" target="_blank" class="btn btn-primary">Launch</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>🔍 SAZ Analyzer Pro</h3>
+        <p>Parse and analyze Fiddler <code>.saz</code> trace files — auto-detects HTTP errors, auth failures, redirect loops, connection issues, and provides URL investigation.</p>
+        <div class="card-actions">
+          <a href="https://rajendrajat.github.io/Browser-tools/SAZ_Analyzer.html" target="_blank" class="btn btn-primary">Launch</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>🛡️ MIPLog Analyzer</h3>
+        <p>Parse and analyze <code>.miplog</code> files from Microsoft Edge — auto-detects MIP protection failures, profile sync issues, permission errors, and certificate store problems.</p>
+        <div class="card-actions">
+          <a href="https://rajendrajat.github.io/Browser-tools/MIPLog_Analyzer.html" target="_blank" class="btn btn-primary">Launch</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>📊 HAR Log Analyzer</h3>
+        <p>Inspect HTTP Archive (<code>.har</code>) files in the browser. Visualize request/response timelines, filter by status, and spot performance bottlenecks quickly.</p>
+        <div class="card-actions">
+          <a href="https://rajendrajat.github.io/Browser-tools/HAR%20Log%20Analyzer.html" target="_blank" class="btn btn-primary">Launch</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>🖧 Endpoint Reachability Checker</h3>
+        <p>Test if service/API endpoints are reachable from your network without opening them in a tab. Shows Reachable, Blocked, Redirected, and latency in ms.</p>
+        <div class="card-actions">
+          <a href="https://rajendrajat.github.io/Browser-tools/Endpoint_Reachability_Checker.html" target="_blank" class="btn btn-primary">Launch</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>📝 Plain Text Converter</h3>
+        <p>Strip bullets, markdown, and formatting from emails and documents to get clean plain text. Toggleable options and one-click copy/download.</p>
+        <div class="card-actions">
+          <a href="https://rajendrajat.github.io/Browser-tools/plain_text_converter.html" target="_blank" class="btn btn-primary">Launch</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>⚡ NetExport Analyzer Pro</h3>
+        <p>Advanced Chromium NetExport log analyzer with enhanced filtering, session inspection, and auto-detection of network anomalies.</p>
+        <div class="card-actions">
+          <a href="https://rajendrajat.github.io/Browser-tools/NetExport_Analyzer_Pro2.0.html" target="_blank" class="btn btn-primary">Launch</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>🧰 Edge Support Toolkit</h3>
+        <p>A combined toolkit for Edge enterprise support — policy checker, diagnostics, and quick utilities in one place.</p>
+        <div class="card-actions">
+          <a href="https://rajendrajat.github.io/Browser-tools/Edge_Support_Toolkit.html" target="_blank" class="btn btn-primary">Launch</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>⚙️ Edge Policy Analyzer</h3>
+        <p>Inspect and validate Microsoft Edge enterprise policies. Quickly spot misconfigurations, conflicts, and unsupported settings.</p>
+        <div class="card-actions">
+          <a href="https://rajendrajat.github.io/Browser-tools/Edge_Policy_Analyzer.html" target="_blank" class="btn btn-primary">Launch</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>📱 Device Status Log Analyzer</h3>
+        <p>Parse device status and enrollment logs to troubleshoot Intune/MDM issues, sync failures, and compliance states.</p>
+        <div class="card-actions">
+          <a href="https://rajendrajat.github.io/Browser-tools/Device%20Status%20Log%20Analyzer.html" target="_blank" class="btn btn-primary">Launch</a>
+        </div>
+      </div>
+
+      <!-- ADD NEW TOOL HERE -->
+
+    </div>
+  </section>
+
+  <!-- ===================== PROJECTS ===================== -->
+  <section id="projects">
+    <h2 class="section-title">Projects</h2>
+    <p style="color:var(--text-muted);margin-bottom:2rem;">
+      Open-source and personal projects on GitHub. Most are tools and automation experiments
+      born from real debugging workflows.
+    </p>
+    <div class="cards-grid">
+
+      <!-- ADD NEW PROJECT HERE (copy/paste a card block below and edit details) -->
+
+      <div class="card">
+        <h3>Browser-tools</h3>
+        <div class="tech-tags">
+          <span class="tech-tag">JavaScript</span>
+          <span class="tech-tag">HTML5</span>
+          <span class="tech-tag">GitHub Pages</span>
+        </div>
+        <p>A growing collection of browser-based diagnostic utilities for IT support — NetLog, SAZ, MIPLog, HAR analyzers, reachability checker, and more. Zero-install, zero-backend.</p>
+        <div class="card-actions">
+          <a href="https://github.com/rajendrajat/Browser-tools" target="_blank" rel="noopener" class="btn btn-primary">View on GitHub ↗</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>NetLog Analyzer</h3>
+        <div class="tech-tags">
+          <span class="tech-tag">JavaScript</span>
+          <span class="tech-tag">GitHub Pages</span>
+          <span class="tech-tag">Diagnostics</span>
+        </div>
+        <p>Client-side Chromium NetLog viewer with JSON parsing, proxy/DNS/cert detection, and copy-paste ready case notes for support tickets.</p>
+        <div class="card-actions">
+          <a href="https://github.com/rajendrajat/Browser-tools/blob/main/netlog-analyzer.html" target="_blank" rel="noopener" class="btn btn-primary">View on GitHub ↗</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>SAZ Analyzer Pro</h3>
+        <div class="tech-tags">
+          <span class="tech-tag">JavaScript</span>
+          <span class="tech-tag">JSZip</span>
+          <span class="tech-tag">Fiddler</span>
+        </div>
+        <p>Intelligent Fiddler trace analyzer — auto-detects auth failures, server errors, redirect loops, and provides URL investigation with header comparison.</p>
+        <div class="card-actions">
+          <a href="https://github.com/rajendrajat/Browser-tools/blob/main/SAZ_Analyzer.html" target="_blank" rel="noopener" class="btn btn-primary">View on GitHub ↗</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>MIPLog Analyzer</h3>
+        <div class="tech-tags">
+          <span class="tech-tag">JavaScript</span>
+          <span class="tech-tag">Edge</span>
+          <span class="tech-tag">MIP</span>
+        </div>
+        <p>Parses Microsoft Edge MIP logs to auto-detect protection failures, profile sync issues, permission errors, and generates structured case reports.</p>
+        <div class="card-actions">
+          <a href="https://github.com/rajendrajat/Browser-tools/blob/main/MIPLog_Analyzer.html" target="_blank" rel="noopener" class="btn btn-primary">View on GitHub ↗</a>
+        </div>
+      </div>
+
+      <!-- ADD NEW PROJECT HERE -->
+
+    </div>
+  </section>
+
+  <!-- ===================== BLOG ===================== -->
+  <section id="blog">
+    <h2 class="section-title">Blog</h2>
+    <p style="color:var(--text-muted);margin-bottom:2rem;">
+      Notes from the field — browser internals, debugging techniques, DevOps experiments, and lessons learned.
+    </p>
+    <div class="cards-grid">
+
+      <!-- ADD NEW POST HERE (copy/paste a card block below and edit details) -->
+
+      <div class="card">
+        <span class="blog-date">June 2025</span>
+        <h3>From Support Engineer to SRE: My Transition Roadmap</h3>
+        <p>How I'm leveraging my deep debugging experience to break into DevOps and Site Reliability Engineering — skills, certs, and side projects.</p>
+        <div class="card-actions">
+          <a href="#" class="btn btn-outline">Read More</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <span class="blog-date">May 2025</span>
+        <h3>Debugging Browser Networks with NetLog Traces</h3>
+        <p>A practical guide to capturing, parsing, and analyzing Chromium NetLog files to diagnose enterprise browsing issues.</p>
+        <div class="card-actions">
+          <a href="#" class="btn btn-outline">Read More</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <span class="blog-date">April 2025</span>
+        <h3>Understanding ETL Traces for Windows Diagnostics</h3>
+        <p>What ETL files are, how to read them without heavy tooling, and why they matter for browser and endpoint troubleshooting.</p>
+        <div class="card-actions">
+          <a href="#" class="btn btn-outline">Read More</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <span class="blog-date">March 2025</span>
+        <h3>Building a Fiddler Clone in the Browser</h3>
+        <p>Lessons from building WebTrace Analyzer — parsing SAZ/HAR files client-side, rendering request inspectors, and keeping it fast.</p>
+        <div class="card-actions">
+          <a href="#" class="btn btn-outline">Read More</a>
+        </div>
+      </div>
+
+      <!-- ADD NEW POST HERE -->
+
+    </div>
+  </section>
+
+  <!-- ===================== CONTACT ===================== -->
+  <section id="contact">
+    <h2 class="section-title">Contact</h2>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <p>
+          I'm open to <strong>DevOps, SRE, and Platform Engineering</strong> opportunities — full-time, contract, or freelance.
+          If you have a role, a project, or just want to talk shop, drop me a message.
+        </p>
+        <div class="contact-item">
+          <strong>Email</strong>
+          <a href="mailto:rajendrajat@outlook.com">rajendrajat@outlook.com</a>
+        </div>
+        <div class="contact-item">
+          <strong>LinkedIn</strong>
+          <a href="https://linkedin.com/in/rajendrajat" target="_blank" rel="noopener">linkedin.com/in/rajendrajat</a>
+        </div>
+        <div class="contact-item">
+          <strong>GitHub</strong>
+          <a href="https://github.com/rajendrajat" target="_blank" rel="noopener">github.com/rajendrajat</a>
+        </div>
+        <div class="contact-item">
+          <strong>Location</strong>
+          <span>India (Remote friendly)</span>
+        </div>
+      </div>
+      <div class="contact-form">
+        <form id="contactForm" action="#" method="POST">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Your name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="you@example.com" required>
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Tell me about your project or opportunity..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">Send Message</button>
+          <div class="form-status" id="formStatus"></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer>
+    <p>© <span id="year"></span> Rajendra Jat. Built with HTML &amp; CSS. Hosted on GitHub Pages.</p>
+  </footer>
+
+  <!-- ===================== JAVASCRIPT ===================== -->
+  <script>
+    // Mobile menu toggle
+    function toggleMenu() {
+      document.getElementById('navLinks').classList.toggle('open');
+    }
+    function closeMenu() {
+      document.getElementById('navLinks').classList.remove('open');
+    }
+
+    // Close mobile menu on outside click
+    document.addEventListener('click', function(e) {
+      const nav = document.querySelector('nav');
+      const toggle = document.querySelector('.menu-toggle');
+      if (!nav.contains(e.target) && !toggle.contains(e.target)) {
+        closeMenu();
+      }
+    });
+
+    // Active nav link on scroll
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-links a');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(sec => {
+        const secTop = sec.offsetTop - 80;
+        if (scrollY >= secTop) current = sec.getAttribute('id');
+      });
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + current) link.classList.add('active');
+      });
+    });
+
+    // Footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Contact form handler — opens mailto with pre-filled data
+    const form = document.getElementById('contactForm');
+    const status = document.getElementById('formStatus');
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+
+      const subject = encodeURIComponent('Portfolio Contact: ' + name);
+      const body = encodeURIComponent(
+        'Name: ' + name + '\n' +
+        'Email: ' + email + '\n\n' +
+        'Message:\n' + message
+      );
+
+      window.location.href = 'mailto:rajendrajat@outlook.com?subject=' + subject + '&body=' + body;
+
+      status.style.color = '#34d399';
+      status.textContent = '✅ Opening your email client...';
+      form.reset();
+    });
+  </script>
+</body>
+</html>
