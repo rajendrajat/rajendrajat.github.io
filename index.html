@@ -438,6 +438,7 @@
     <div class="hero-actions">
       <a href="#tools" class="btn btn-primary">🛠️ Explore Tools</a>
       <a href="#contact" class="btn btn-outline">📬 Get in Touch</a>
+      <a href="/resume.pdf" download class="btn btn-outline">📄 Download Resume</a>
     </div>
     <div class="social-row">
       <a href="https://github.com/rajendrajat" target="_blank" rel="noopener" aria-label="GitHub">
@@ -483,6 +484,12 @@
           <span class="skill-tag">Git</span>
           <span class="skill-tag">Terraform (learning)</span>
           <span class="skill-tag">Prometheus / Grafana (learning)</span>
+        </div>
+        <p style="margin-bottom:0.5rem;margin-top:1.5rem;font-weight:600;color:var(--text);">Certifications</p>
+        <div class="skills-list">
+          <span class="skill-tag">Microsoft Azure Fundamentals (AZ-900)</span>
+          <span class="skill-tag">ISO 27001 Foundation</span>
+          <span class="skill-tag">Browsers Fundamentals (LTIMindtree)</span>
         </div>
       </div>
       <div class="experience-card">
@@ -606,6 +613,21 @@
       <!-- ADD NEW PROJECT HERE (copy/paste a card block below and edit details) -->
 
       <div class="card">
+        <h3>90 Days of DevOps — Live Learning Log</h3>
+        <div class="tech-tags">
+          <span class="tech-tag">Docker</span>
+          <span class="tech-tag">Kubernetes</span>
+          <span class="tech-tag">GitHub Actions</span>
+          <span class="tech-tag">AWS</span>
+          <span class="tech-tag">Terraform</span>
+        </div>
+        <p>Documenting hands-on DevOps learning — Linux, Docker, K8s, CI/CD, AWS, Terraform. Projects being added weekly.</p>
+        <div class="card-actions">
+          <a href="https://github.com/rajendrajat" target="_blank" rel="noopener" class="btn btn-primary">View on GitHub ↗</a>
+        </div>
+      </div>
+
+      <div class="card">
         <h3>Browser-tools</h3>
         <div class="tech-tags">
           <span class="tech-tag">JavaScript</span>
@@ -677,7 +699,7 @@
         <h3>From Support Engineer to SRE: My Transition Roadmap</h3>
         <p>How I'm leveraging my deep debugging experience to break into DevOps and Site Reliability Engineering — skills, certs, and side projects.</p>
         <div class="card-actions">
-          <a href="#" class="btn btn-outline">Read More</a>
+          <button class="btn btn-outline" title="Coming soon 📝" onclick="alert('Coming soon! 📝')" style="cursor:help">Coming Soon</button>
         </div>
       </div>
 
@@ -686,7 +708,7 @@
         <h3>Debugging Browser Networks with NetLog Traces</h3>
         <p>A practical guide to capturing, parsing, and analyzing Chromium NetLog files to diagnose enterprise browsing issues.</p>
         <div class="card-actions">
-          <a href="#" class="btn btn-outline">Read More</a>
+          <button class="btn btn-outline" title="Coming soon 📝" onclick="alert('Coming soon! 📝')" style="cursor:help">Coming Soon</button>
         </div>
       </div>
 
@@ -695,7 +717,7 @@
         <h3>Understanding ETL Traces for Windows Diagnostics</h3>
         <p>What ETL files are, how to read them without heavy tooling, and why they matter for browser and endpoint troubleshooting.</p>
         <div class="card-actions">
-          <a href="#" class="btn btn-outline">Read More</a>
+          <button class="btn btn-outline" title="Coming soon 📝" onclick="alert('Coming soon! 📝')" style="cursor:help">Coming Soon</button>
         </div>
       </div>
 
@@ -704,7 +726,7 @@
         <h3>Building a Fiddler Clone in the Browser</h3>
         <p>Lessons from building WebTrace Analyzer — parsing SAZ/HAR files client-side, rendering request inspectors, and keeping it fast.</p>
         <div class="card-actions">
-          <a href="#" class="btn btn-outline">Read More</a>
+          <button class="btn btn-outline" title="Coming soon 📝" onclick="alert('Coming soon! 📝')" style="cursor:help">Coming Soon</button>
         </div>
       </div>
 
@@ -740,7 +762,7 @@
         </div>
       </div>
       <div class="contact-form">
-        <form id="contactForm" action="#" method="POST">
+        <form id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
           <div class="form-group">
             <label for="name">Name</label>
             <input type="text" id="name" name="name" placeholder="Your name" required>
@@ -749,6 +771,7 @@
             <label for="email">Email</label>
             <input type="email" id="email" name="email" placeholder="you@example.com" required>
           </div>
+          <input type="hidden" name="_replyto" value="">
           <div class="form-group">
             <label for="message">Message</label>
             <textarea id="message" name="message" placeholder="Tell me about your project or opportunity..." required></textarea>
@@ -802,27 +825,34 @@
     // Footer year
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Contact form handler — opens mailto with pre-filled data
+    // Contact form handler — Formspree integration with success message
     const form = document.getElementById('contactForm');
     const status = document.getElementById('formStatus');
-    form.addEventListener('submit', function(e) {
+    form.addEventListener('submit', async function(e) {
       e.preventDefault();
-      const name = document.getElementById('name').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const message = document.getElementById('message').value.trim();
-
-      const subject = encodeURIComponent('Portfolio Contact: ' + name);
-      const body = encodeURIComponent(
-        'Name: ' + name + '\n' +
-        'Email: ' + email + '\n\n' +
-        'Message:\n' + message
-      );
-
-      window.location.href = 'mailto:rajendrajat022@gmail.com?subject=' + subject + '&body=' + body;
-
-      status.style.color = '#34d399';
-      status.textContent = '✅ Opening your email client...';
-      form.reset();
+      const action = form.getAttribute('action');
+      if (action.includes('YOUR_FORM_ID')) {
+        status.style.color = '#fbbf24';
+        status.textContent = '⚠️ Update YOUR_FORM_ID in the form action with your Formspree endpoint.';
+        return;
+      }
+      // populate hidden _replyto from email field
+      const replyto = form.querySelector('input[name="_replyto"]');
+      if (replyto) replyto.value = document.getElementById('email').value;
+      try {
+        const data = new FormData(form);
+        const res = await fetch(action, { method: 'POST', body: data, headers: { Accept: 'application/json' } });
+        if (res.ok) {
+          status.style.color = '#34d399';
+          status.textContent = '✅ Message sent! I\'ll get back to you soon.';
+          form.reset();
+        } else {
+          throw new Error('Server error');
+        }
+      } catch (err) {
+        status.style.color = '#f87171';
+        status.textContent = '❌ Something went wrong. Please try again.';
+      }
     });
   </script>
 </body>
