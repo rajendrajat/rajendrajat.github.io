@@ -249,7 +249,7 @@
       color: var(--accent);
     }
 
-    /* Cards grid (Tools, Projects, Blog) */
+    /* Cards grid */
     .cards-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -298,8 +298,8 @@
       letter-spacing: 0.3px;
     }
 
-    /* Blog */
-    .blog-date {
+    /* Lab dates */
+    .lab-date {
       font-size: 0.82rem;
       color: var(--accent);
       font-weight: 600;
@@ -419,7 +419,7 @@
         <li><a href="#about" onclick="closeMenu()">About</a></li>
         <li><a href="#tools" onclick="closeMenu()">Tools</a></li>
         <li><a href="#projects" onclick="closeMenu()">Projects</a></li>
-        <li><a href="#blog" onclick="closeMenu()">Blog</a></li>
+        <li><a href="#notes" onclick="closeMenu()">Lab Notes</a></li>
         <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
       </ul>
     </div>
@@ -431,14 +431,13 @@
     <h1 class="hero-name">Rajendra Jat</h1>
     <p class="hero-role">Senior Support Engineer → <strong>DevOps &amp; SRE</strong></p>
     <p class="hero-bio">
-      I'm a Senior Support Engineer at <strong>LTIMindtree</strong> working with the <strong>Microsoft Edge enterprise team</strong>.
-      I debug browsers, networks, and endpoints at scale — and I'm actively transitioning into
-      <strong>DevOps, Site Reliability Engineering, and Platform Engineering</strong> roles.
+      Senior Support Engineer specializing in <strong>Enterprise Browser &amp; Network Diagnostics</strong>.
+      I debug browsers, networks, and endpoints at scale — analyzing traces, automating workflows, and building diagnostic tools.
+      Currently transitioning into <strong>DevOps, Site Reliability Engineering, and Platform Engineering</strong> roles.
     </p>
     <div class="hero-actions">
       <a href="#tools" class="btn btn-primary">🛠️ Explore Tools</a>
       <a href="#contact" class="btn btn-outline">📬 Get in Touch</a>
-      <a href="/resume.pdf" download class="btn btn-outline">📄 Download Resume</a>
     </div>
     <div class="social-row">
       <a href="https://github.com/rajendrajat" target="_blank" rel="noopener" aria-label="GitHub">
@@ -462,13 +461,13 @@
     <div class="about-grid">
       <div class="about-text">
         <p>
-          I have spent years in the trenches of enterprise support — debugging complex browser issues,
-          analyzing network traces, and helping Fortune 500 companies keep their endpoints running smoothly.
+          I specialize in <strong>enterprise browser diagnostics and network troubleshooting</strong> at scale —
+          debugging complex browser issues, analyzing NetLog/ETL/HAR/SAZ traces, and keeping endpoints running smoothly.
         </p>
         <p>
-          Along the way, I built a deep appreciation for automation, reliability engineering, and infrastructure-as-code.
-          Today, I'm transitioning into <strong>DevOps / SRE</strong> roles where I can apply my troubleshooting mindset
-          at the platform level.
+          Over time, I built a deep appreciation for <strong>automation, reliability engineering, and infrastructure-as-code</strong>.
+          Today, I am actively transitioning into <strong>DevOps / SRE / Platform Engineering</strong> roles where I can apply
+          my troubleshooting mindset to build and operate resilient systems.
         </p>
         <p style="margin-bottom:0.5rem;font-weight:600;color:var(--text);">Core Skills</p>
         <div class="skills-list">
@@ -480,6 +479,7 @@
           <span class="skill-tag">Azure</span>
           <span class="skill-tag">Networking</span>
           <span class="skill-tag">Browser Internals</span>
+          <span class="skill-tag">Log Analysis</span>
           <span class="skill-tag">Python</span>
           <span class="skill-tag">Git</span>
           <span class="skill-tag">Terraform (learning)</span>
@@ -489,17 +489,17 @@
         <div class="skills-list">
           <span class="skill-tag">Microsoft Azure Fundamentals (AZ-900)</span>
           <span class="skill-tag">ISO 27001 Foundation</span>
-          <span class="skill-tag">Browsers Fundamentals (LTIMindtree)</span>
+          <span class="skill-tag">Browsers Fundamentals</span>
         </div>
       </div>
       <div class="experience-card">
-        <h3>Senior Support Engineer</h3>
-        <div class="meta">LTIMindtree — Microsoft Edge Enterprise Team</div>
+        <h3>Senior Support Engineer — Enterprise Browser &amp; Network Diagnostics</h3>
+        <div class="meta">Enterprise Browser Support &amp; Diagnostics</div>
         <ul>
           <li>Debug enterprise browser issues across Windows, macOS, and mobile platforms</li>
           <li>Analyze NetLog, ETL, HAR, and SAZ traces to root-cause network &amp; rendering failures</li>
           <li>Build internal tools and automation scripts to accelerate incident resolution</li>
-          <li>Collaborate with Microsoft engineering on critical escalations and bug triage</li>
+          <li>Collaborate with engineering teams on critical escalations and bug triage</li>
         </ul>
       </div>
     </div>
@@ -520,7 +520,7 @@
         <h3>🌐 NetLog Analyzer</h3>
         <p>Parse and triage Edge/Chrome <code>net-export.json</code> logs — surfaces blocked endpoints, proxy issues, cert errors, DNS failures, and HTTP/2/QUIC session details.</p>
         <div class="card-actions">
-          <a href="https://rajendrajat.github.io/Browser-tools/netlog-analyzer.html" target="_blank" class="btn btn-primary">Launch</a>
+          <a href="https://rajendrajat.github.io/Browser-tools/netlog-analyzer.html" target="_blank" rel="noopener" class="btn btn-primary">Launch</a>
         </div>
       </div>
 
@@ -528,7 +528,7 @@
         <h3>🔍 SAZ Analyzer Pro</h3>
         <p>Parse and analyze Fiddler <code>.saz</code> trace files — auto-detects HTTP errors, auth failures, redirect loops, connection issues, and provides URL investigation.</p>
         <div class="card-actions">
-          <a href="https://rajendrajat.github.io/Browser-tools/SAZ_Analyzer.html" target="_blank" class="btn btn-primary">Launch</a>
+          <a href="https://rajendrajat.github.io/Browser-tools/SAZ_Analyzer.html" target="_blank" rel="noopener" class="btn btn-primary">Launch</a>
         </div>
       </div>
 
@@ -536,7 +536,7 @@
         <h3>🛡️ MIPLog Analyzer</h3>
         <p>Parse and analyze <code>.miplog</code> files from Microsoft Edge — auto-detects MIP protection failures, profile sync issues, permission errors, and certificate store problems.</p>
         <div class="card-actions">
-          <a href="https://rajendrajat.github.io/Browser-tools/MIPLog_Analyzer.html" target="_blank" class="btn btn-primary">Launch</a>
+          <a href="https://rajendrajat.github.io/Browser-tools/MIPLog_Analyzer.html" target="_blank" rel="noopener" class="btn btn-primary">Launch</a>
         </div>
       </div>
 
@@ -544,7 +544,7 @@
         <h3>📊 HAR Log Analyzer</h3>
         <p>Inspect HTTP Archive (<code>.har</code>) files in the browser. Visualize request/response timelines, filter by status, and spot performance bottlenecks quickly.</p>
         <div class="card-actions">
-          <a href="https://rajendrajat.github.io/Browser-tools/HAR%20Log%20Analyzer.html" target="_blank" class="btn btn-primary">Launch</a>
+          <a href="https://rajendrajat.github.io/Browser-tools/HAR%20Log%20Analyzer.html" target="_blank" rel="noopener" class="btn btn-primary">Launch</a>
         </div>
       </div>
 
@@ -552,7 +552,7 @@
         <h3>🖧 Endpoint Reachability Checker</h3>
         <p>Test if service/API endpoints are reachable from your network without opening them in a tab. Shows Reachable, Blocked, Redirected, and latency in ms.</p>
         <div class="card-actions">
-          <a href="https://rajendrajat.github.io/Browser-tools/Endpoint_Reachability_Checker.html" target="_blank" class="btn btn-primary">Launch</a>
+          <a href="https://rajendrajat.github.io/Browser-tools/Endpoint_Reachability_Checker.html" target="_blank" rel="noopener" class="btn btn-primary">Launch</a>
         </div>
       </div>
 
@@ -560,7 +560,7 @@
         <h3>📝 Plain Text Converter</h3>
         <p>Strip bullets, markdown, and formatting from emails and documents to get clean plain text. Toggleable options and one-click copy/download.</p>
         <div class="card-actions">
-          <a href="https://rajendrajat.github.io/Browser-tools/plain_text_converter.html" target="_blank" class="btn btn-primary">Launch</a>
+          <a href="https://rajendrajat.github.io/Browser-tools/plain_text_converter.html" target="_blank" rel="noopener" class="btn btn-primary">Launch</a>
         </div>
       </div>
 
@@ -568,7 +568,7 @@
         <h3>⚡ NetExport Analyzer Pro</h3>
         <p>Advanced Chromium NetExport log analyzer with enhanced filtering, session inspection, and auto-detection of network anomalies.</p>
         <div class="card-actions">
-          <a href="https://rajendrajat.github.io/Browser-tools/NetExport_Analyzer_Pro2.0.html" target="_blank" class="btn btn-primary">Launch</a>
+          <a href="https://rajendrajat.github.io/Browser-tools/NetExport_Analyzer_Pro2.0.html" target="_blank" rel="noopener" class="btn btn-primary">Launch</a>
         </div>
       </div>
 
@@ -576,7 +576,7 @@
         <h3>🧰 Edge Support Toolkit</h3>
         <p>A combined toolkit for Edge enterprise support — policy checker, diagnostics, and quick utilities in one place.</p>
         <div class="card-actions">
-          <a href="https://rajendrajat.github.io/Browser-tools/Edge_Support_Toolkit.html" target="_blank" class="btn btn-primary">Launch</a>
+          <a href="https://rajendrajat.github.io/Browser-tools/Edge_Support_Toolkit.html" target="_blank" rel="noopener" class="btn btn-primary">Launch</a>
         </div>
       </div>
 
@@ -584,7 +584,7 @@
         <h3>⚙️ Edge Policy Analyzer</h3>
         <p>Inspect and validate Microsoft Edge enterprise policies. Quickly spot misconfigurations, conflicts, and unsupported settings.</p>
         <div class="card-actions">
-          <a href="https://rajendrajat.github.io/Browser-tools/Edge_Policy_Analyzer.html" target="_blank" class="btn btn-primary">Launch</a>
+          <a href="https://rajendrajat.github.io/Browser-tools/Edge_Policy_Analyzer.html" target="_blank" rel="noopener" class="btn btn-primary">Launch</a>
         </div>
       </div>
 
@@ -592,7 +592,7 @@
         <h3>📱 Device Status Log Analyzer</h3>
         <p>Parse device status and enrollment logs to troubleshoot Intune/MDM issues, sync failures, and compliance states.</p>
         <div class="card-actions">
-          <a href="https://rajendrajat.github.io/Browser-tools/Device%20Status%20Log%20Analyzer.html" target="_blank" class="btn btn-primary">Launch</a>
+          <a href="https://rajendrajat.github.io/Browser-tools/Device%20Status%20Log%20Analyzer.html" target="_blank" rel="noopener" class="btn btn-primary">Launch</a>
         </div>
       </div>
 
@@ -684,53 +684,35 @@
     </div>
   </section>
 
-  <!-- ===================== BLOG ===================== -->
-  <section id="blog">
-    <h2 class="section-title">Blog</h2>
+  <!-- ===================== LAB NOTES ===================== -->
+  <section id="notes">
+    <h2 class="section-title">Lab Notes</h2>
     <p style="color:var(--text-muted);margin-bottom:2rem;">
-      Notes from the field — browser internals, debugging techniques, DevOps experiments, and lessons learned.
+      Hands-on writeups and step-by-step guides from my DevOps learning journey.
     </p>
     <div class="cards-grid">
 
-      <!-- ADD NEW POST HERE (copy/paste a card block below and edit details) -->
+      <!-- ADD NEW WRITEUP HERE (copy/paste a card block below and edit details) -->
 
       <div class="card">
-        <span class="blog-date">June 2025</span>
-        <h3>From Support Engineer to SRE: My Transition Roadmap</h3>
-        <p>How I'm leveraging my deep debugging experience to break into DevOps and Site Reliability Engineering — skills, certs, and side projects.</p>
+        <span class="lab-date">DevOps Lab</span>
+        <h3>Installing WSL2 on Windows 11</h3>
+        <p>Step-by-step guide to setting up WSL2 with Ubuntu on Windows. Includes D: drive migration tip.</p>
         <div class="card-actions">
-          <button class="btn btn-outline" title="Coming soon 📝" onclick="alert('Coming soon! 📝')" style="cursor:help">Coming Soon</button>
+          <a href="https://github.com/rajendrajat/devops-lab/blob/main/wsl/wsl2-setup.md" target="_blank" rel="noopener" class="btn btn-primary">Read on GitHub →</a>
         </div>
       </div>
 
       <div class="card">
-        <span class="blog-date">May 2025</span>
-        <h3>Debugging Browser Networks with NetLog Traces</h3>
-        <p>A practical guide to capturing, parsing, and analyzing Chromium NetLog files to diagnose enterprise browsing issues.</p>
+        <span class="lab-date">DevOps Lab</span>
+        <h3>Setting Up HTTP Server on Windows</h3>
+        <p>Quick guide to running a local HTTP server on Windows for development and testing.</p>
         <div class="card-actions">
-          <button class="btn btn-outline" title="Coming soon 📝" onclick="alert('Coming soon! 📝')" style="cursor:help">Coming Soon</button>
+          <a href="https://github.com/rajendrajat/devops-lab/blob/main/networking/http-server-guide.md" target="_blank" rel="noopener" class="btn btn-primary">Read on GitHub →</a>
         </div>
       </div>
 
-      <div class="card">
-        <span class="blog-date">April 2025</span>
-        <h3>Understanding ETL Traces for Windows Diagnostics</h3>
-        <p>What ETL files are, how to read them without heavy tooling, and why they matter for browser and endpoint troubleshooting.</p>
-        <div class="card-actions">
-          <button class="btn btn-outline" title="Coming soon 📝" onclick="alert('Coming soon! 📝')" style="cursor:help">Coming Soon</button>
-        </div>
-      </div>
-
-      <div class="card">
-        <span class="blog-date">March 2025</span>
-        <h3>Building a Fiddler Clone in the Browser</h3>
-        <p>Lessons from building WebTrace Analyzer — parsing SAZ/HAR files client-side, rendering request inspectors, and keeping it fast.</p>
-        <div class="card-actions">
-          <button class="btn btn-outline" title="Coming soon 📝" onclick="alert('Coming soon! 📝')" style="cursor:help">Coming Soon</button>
-        </div>
-      </div>
-
-      <!-- ADD NEW POST HERE -->
+      <!-- ADD NEW WRITEUP HERE -->
 
     </div>
   </section>
